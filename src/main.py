@@ -1,12 +1,25 @@
-# Resolve the problem!!
+ # Resolve the problem!!
 import string
+import random
 
 SYMBOLS = list('!"#$%&\'()*+,-./:;?@[]^_`{|}~')
 
 
 def generate_password():
     # Start coding here
-
+    response = []
+    size = random.randrange(8, 16)
+    letters = string.ascii_letters
+    digits = string.digits
+    # Generate Password
+    for i in range(size):
+        response.append(letters[random.randint(0, len(letters) - 1)])
+        response.append(SYMBOLS[random.randint(0, len(SYMBOLS) - 1)])
+        response.append(digits[random.randint(0, len(digits) - 1)])
+    # Shuffle
+    random.shuffle(response)
+    # Combine
+    return ''.join(response)[0:size]
 
 def validate(password):
 
